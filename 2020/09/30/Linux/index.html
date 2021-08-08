@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux系统的组成：  linux内核（linus 团队管理） shell：用户与内核交互的接口 文件系统：ext3、ext4等。windows 有 fat32 、ntfs 第三方应用软件  系统路径：1234567&#x2F; 表示根目录~ 表示&#x2F;rootetc存放系统配置目录home除了root以外所有用户默认在home下新建一个以用户名为文件夹名称的文件夹root用户root单独做文件夹usr所有用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://example.com/2020/09/30/Linux/index.html">
+<meta property="og:site_name" content="LocalMountain">
+<meta property="og:description" content="Linux系统的组成：  linux内核（linus 团队管理） shell：用户与内核交互的接口 文件系统：ext3、ext4等。windows 有 fat32 、ntfs 第三方应用软件  系统路径：1234567&#x2F; 表示根目录~ 表示&#x2F;rootetc存放系统配置目录home除了root以外所有用户默认在home下新建一个以用户名为文件夹名称的文件夹root用户root单独做文件夹usr所有用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-30T01:26:29.000Z">
+<meta property="article:modified_time" content="2021-08-08T14:37:42.963Z">
+<meta property="article:author" content="hzq">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/09/30/Linux/"/>
+
+
+
+
+
+  <title>Linux | LocalMountain</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LocalMountain</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LocalMountain">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-30T09:26:29+08:00">
+                2020-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Linux系统的组成：</p>
+<ul>
+<li>linux内核（linus 团队管理）</li>
+<li>shell：用户与内核交互的接口</li>
+<li>文件系统：ext3、ext4等。windows 有 fat32 、ntfs</li>
+<li>第三方应用软件</li>
+</ul>
+<h4 id="系统路径："><a href="#系统路径：" class="headerlink" title="系统路径："></a>系统路径：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/ 表示根目录</span><br><span class="line">~ 表示/root</span><br><span class="line">etc存放系统配置目录</span><br><span class="line">home除了root以外所有用户默认在home下新建一个以用户名为文件夹名称的文件夹</span><br><span class="line">root用户root单独做文件夹</span><br><span class="line">usr所有用户安装的软件都在这个文件夹下</span><br><span class="line">	/usr/local下新建一个tmp，所有压缩包都上传到tmp中</span><br></pre></td></tr></table></figure>
+
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir 新建文件夹</span><br><span class="line">touch 新建文件</span><br><span class="line">pwd 打印工作目录</span><br><span class="line">vi vim 文本编辑器</span><br><span class="line">cat 查看文件全部内容</span><br><span class="line">head [-n] 查看文件前n行，默认10行</span><br><span class="line">tail [-n] 查看文件末尾n行，默认10行</span><br><span class="line">tailf 动态显示文件后n行内容</span><br><span class="line">echo &#x27;xxxx&#x27; &gt;&gt; 文件名   往文件中添加xxxx</span><br><span class="line">tar zxvf 文件名    解压文件v显示解压过程 </span><br><span class="line">cp 原文件 新文件位置    复制文件</span><br><span class="line">mv 原文件 新文件位置    移动文件，可以改名</span><br><span class="line">rm 文件名             删除文件</span><br></pre></td></tr></table></figure>
+
+<h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>centos7最小化安装没有ifconfig，替代命令是ip addr </p>
+<p>网络配置文件默认配置 <code>/etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TYPE=Ethernet # 网卡类型：为以太网 </span><br><span class="line">PROXY_METHOD=none # 代理方式：关闭状态 </span><br><span class="line">BROWSER_ONLY=no # 只是浏览器：否 </span><br><span class="line">BOOTPROTO=dhcp # 网卡的引导协议：DHCP[中文名称: 动态主机配置协议] </span><br><span class="line">DEFROUTE=yes # 默认路由：是, 不明白的可以百度关键词 `默认路由` </span><br><span class="line">IPV4_FAILURE_FATAL=no # 是不开启IPV4致命错误检测：否 </span><br><span class="line">IPV6INIT=yes # IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_AUTOCONF=yes # IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_DEFROUTE=yes # IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_FAILURE_FATAL=no # 是不开启IPV6致命错误检测：否 </span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy # IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略] </span><br><span class="line">NAME=ens33 # 网卡物理设备名称 </span><br><span class="line">UUID=f47bde51-fa78-4f79-b68f-d5dd90cfc698 # 通用唯一识别码, 每一个网卡都会有, 不能重复, 否两台linux只有一台网卡可用 </span><br><span class="line">DEVICE=ens33 # 网卡设备名称, 必须和 `NAME` 值一样 </span><br><span class="line">ONBOOT=no # 是否开机启动， 要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes`</span><br></pre></td></tr></table></figure>
+
+<p>需要设置的内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static    # 设置为静态</span><br><span class="line">ONBOOT=yes # 网卡启动方式试纸为开机自启</span><br><span class="line">IPADDR=192.168.xxx.xxx</span><br><span class="line">NETMASK=255.255.255.0   或者PREFIX=24</span><br><span class="line">GATEWAY=192.168.xxx.xxx</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="jdk的配置"><a href="#jdk的配置" class="headerlink" title="jdk的配置"></a>jdk的配置</h4><p>1.压缩包上传到服务器/usr/local/tmp<br>2.解压tar包   <code># tar zxvf tar包名</code><br>3.把解压后文件复制到/usr/local/jdk   <code># cp -r jdk1.8 /usr/local/jdk</code><br>4.配置环境变量   <code># vim /etc/profile</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL</span><br><span class="line">export JAVA_HOME=/usr/local/jdk8</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar(jdk1.8可以不配)</span><br></pre></td></tr></table></figure>
+<p>5.加载环境变量配置文件 <code># source /etc/profile</code></p>
+<h4 id="tomcat配置"><a href="#tomcat配置" class="headerlink" title="tomcat配置"></a>tomcat配置</h4><p>1.压缩包上传到服务器/usr/local/tmp<br>2.解压tar包<br>3.把解压后文件复制到/usr/local/tomcat<br>4.配置环境变量 <code># vim /etc/profile</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export TOMCAT_HOME=/usr/local/tomcat8</span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat8</span><br></pre></td></tr></table></figure>
+<p>5.更改防火墙放行8080端口 <code># vim /etc/sysconfig/iptables</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>6.重启防火墙服务 <code># service iptables restart</code><br>7.启动tomcat, 在tomcat的bin目录下<code># ./startup.sh &amp; tailf /usr/local/tomcat/logs/catalina.out</code></p>
+<h4 id="mysql配置"><a href="#mysql配置" class="headerlink" title="mysql配置"></a>mysql配置</h4><p>1.压缩包上传文件<br>2.解压tar包<br>3.把解压后的文件复制到/usr/local/mysql<br>4.新建一个用户组和用户讲其赋给mysql </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd -r -g mysql mysql</span><br></pre></td></tr></table></figure>
+<p>5.在/usr/local/mysql中，赋予权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chgrp -R mysql .</span><br><span class="line"># chown -R mysql .</span><br></pre></td></tr></table></figure>
+<p>6.判断是否有my.cnf <code># ls /etc/my.cnf</code>有则删除<br>7.初始化数据库 <code># ./scripts/mysql_install_db --user=mysql</code><br>8.复制my.cnf文件 <code># cp support-files/my-default.cnf /etc/my.cnf</code><br>9.复制启动文件 <code># cp support-files/mysql.server /etc/rc.d/init.d/mysql</code><br>10.添加软连接 <code># ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql</code><br>11.启动mysql服务 <code># service mysql start</code><br>12.mysql -u root -p可以使用mysql数据库</p>
+<p>远程连接mysql<br>更新root的密码<br><code>mysql&gt; update user set password=password(&quot;root&quot;) where user=&#39;root&#39;;</code><br><code>flush privileges</code><br>添加root的远程访问权限<br><code>mysql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;root&#39; with grant option;</code><br>开放防火墙端口<code># vim /etc/sysconfig/iptables</code></p>
+<hr>
+<p>提示符#为超级用户$为普通用户</p>
+<p><code>ls </code>      （ls -li可以查看链接的inode）</p>
+<ul>
+<li><code>-a</code>     <code>--all</code> 列出所有文件</li>
+<li><code>-d</code>     <code>--directory</code> 显示当前文件夹</li>
+<li><code>-F</code>     <code>--classify</code> 在名字后面加上类型提示符（例如，如果是目录名，加上斜杠）</li>
+<li><code>-h</code>     <code>--human-readable</code> 以长格式列出时，字节数有单位方便阅读</li>
+<li><code>-l</code>        长格式输出</li>
+<li><code>-r</code>    <code>--reverse</code> 方向输出</li>
+<li><code>-S</code>        文件占用从大到小输出</li>
+<li><code>-t</code>          按修改时间输出</li>
+</ul>
+<p><code>file filename</code>用来查看文件类型</p>
+<p><code>less filename</code>用来查看文件内容    <code>page up</code>和<code>b</code><strong>往前翻一页</strong>  <code>page down</code>和<code>space</code><strong>往后翻</strong>   <code>G</code>末尾  <code> g</code>开头   <code>/characters</code> 往下寻找指定的字符串  <code>n</code>下一个指定字符串  <code>N</code>前一个   <code>h</code>显示帮助屏幕   <code>q</code>退出less</p>
+<p>通配符  <code>*</code> 匹配任意多个字符   <code>?</code><strong>只匹配一个</strong>字符   <code>[characters]</code> 匹配<strong>一个</strong>字符集中的字符 <code>[!characters]</code> 匹配一个不属于字符集中的字符  <code>[[:class:]]</code> 匹配一个指定字符类中的字符</p>
+<ul>
+<li>字符类<ul>
+<li><code>[:alnum:]</code> 任意一个字母或是数字</li>
+<li><code>[:alpha:]</code> 任意一个字母</li>
+<li><code>[:digit:]</code> 任意一个数字</li>
+<li><code>[:lower:]</code> 任意一个小写字母</li>
+<li><code>[:upper:]</code> 任意一个大写字母</li>
+</ul>
+</li>
+</ul>
+<p><code>mkdir directory...</code> 可以创建一个或是多个目录</p>
+<p><code>cp item1 item2</code> 将单个文件或目录<code>item1</code>复制到文件或目录<code>item2</code>中</p>
+<p><code>cp item... directory</code> 将多个项目复制进一个目录中。<strong>并且如果是3个以上的参数情况下，默认最后一个参数是目录名，如果不是则报错</strong></p>
+<ul>
+<li><code>-a</code>   <code>--archive</code> 复制该文件的所有权和权限。</li>
+<li><code>-i</code>     <code>--interactive</code> 覆盖一个已存在的文件前，提示用户进行确认</li>
+<li><code>-r</code>     <code>--recursive</code>  递归复制目录和内容，复制目录时需要这个选项（或是-a）。<strong>如果复制目的地目录不存在，相当于是拷贝当前目录，如果已经存在，那么就复制这个目录到指定目录底下</strong></li>
+<li><code>-u</code>    <code>--update</code> 当将文件从一个目录复制到另一个目录中时，只会复制目标目录中不存在的文件或是已经修改的文件</li>
+<li><code>-v</code>    <code>--verbose</code> 显示复制流程</li>
+</ul>
+<p><code>mv item1 item2</code>   将文件或目录item1移动或是重命名为item2</p>
+<p><code>mv item... directory</code> 将一个或多个文件移动到指定目录下</p>
+<p>mv命令参数与cp命令共享-i    -u   -v</p>
+<p><code>rm item...</code> 删除多个文件</p>
+<ul>
+<li><code>-i</code>    <code>--interactive</code> 提示确认</li>
+<li><code>-r</code>     <code>--recursive</code> 递归的删除</li>
+<li><code>-f</code>      <code>--force</code> 强制删除</li>
+<li><code>-v</code>     <code>--verbose</code>  显示删除过程</li>
+</ul>
+<p><code>ln file link</code>创建硬链接</p>
+<p><code>ln -s file link</code>(创建符号链接时中的file应该为link所在位置的相对位置)</p>
+<p>硬链接：与普通文件没什么区别，相当于是做了一个复制，但是是同一个文件，inode都是指向同一个文件在硬盘中的区域。每一个文件至少都包含一个硬链接（在<code>ls -li</code> 中的i参数用来展示inode，就可以看到两个硬链接的inode数值相同）。不能硬链接文件夹</p>
+<p>软链接（符号链接）：可以简单理解为windows中的快捷方式，一旦原文件被删除，该链接就会失效，linux中表现为红色。可以链接为文件夹</p>
+<p>命令分为4种情况</p>
+<ul>
+<li>可执行程序：类似cp 就像/bin/cp目录中</li>
+<li>shell内置：cd是shell内置</li>
+<li>shell函数：小型shell脚本</li>
+<li>alias命令：命令的别名</li>
+</ul>
+<p><code>type command</code>用于显示该command是上述四种中的哪一种命令。也可以用该命令进行判断该command是否存在</p>
+<p><code>which</code>显示命令的位置，因为要指示命令的位置，所以<strong>只适用于可执行程序</strong>，例如 <code>which ls</code>结果为<code>/bin/ls</code> <code>which cp</code>结果为<code>/bin/cp</code>   。但是我测试好像大部分命令都可以用，并且能够展示别名和位置，比如<code>which cd</code></p>
+<p><code>alias name=&#39;string&#39;</code> 其中string中的命令如果有多个，可以用 <code>;</code> 分开。例如<code>alias foo=&#39;cd /usr; ls; cd -&#39;</code>。直接使用<code>alias</code>可以查看当前系统中默认的别名命令。删除别名用<code>unalias name</code>。一个shell会话结束时，这些别名也随之消失，也可以通过向系统文件添加别名永久保存（后面学）</p>
+<p><code>&gt;</code>可以改变标准输出内容的输出位置，默认标准输出内容显示在屏幕上，可以用此命令将内容重定向到文件中。<code>ls /usr/bin &gt; ls-output.txt</code>这个命令只会重定向标准输出位置，但不会重定向标准错误位置，所以错误信息还是会显示在屏幕上</p>
+<p><code>&gt;</code>每次都是从头开始写入文件，所以新的文件内容会覆盖原来的文件内容，空的文件内容可以导致文件内容删除 <code>&gt; ls-output.txt</code>就删除了ls-output.txt的文件内容，如果说没有该文件就是创建了这个新文件</p>
+<p><code>&gt;&gt;</code>从原文件内容尾部进行添加文件内容，不会覆盖原文件内容</p>
+<p>0， 1， 2 分别用来索引标准输入文件、标准输出文件、标准错误文件。因此可以用 <code>ls /bin/usr/ 2&gt; ls-error.txt</code>来重定向标准错误文件</p>
+<p><code>ls /bin/usr &gt; ls-output.txt 2&gt;&amp;1</code> 可以将标准输出和标准错误都重定向到一个文件中。<strong>并且顺序不能变，必须先指定标准输出，然后再指定标准错误</strong>。<code>ls /bin/usr &amp;&gt; ls-output.txt</code><strong>新方式</strong></p>
+<p><code>ls /bin/usr 2&gt; /dev/null</code> 将错误信息输入到/dev/null中，这个/dev/null特殊文件不对输入做任何处理，相当于忽视产生的错误信息。</p>
+<p><code>cat [file...]</code> 用来显示短的文本文件。接收多个参数时，可以用来将文件拼接，（最后一个参数应该是完成拼接的文件名，待实验）</p>
+<p>如果cat没有给定参数，将从标准输入读取内容，就是等着键盘输入内容，键盘输入完成后，<strong>Ctrl+D表明输入完毕</strong>。同时，因为没有带参数，没有指定文件名，那么输入的内容将复制到标准输出文件中(也就是屏幕上)。</p>
+<p><code>command1 | command2</code> 将command1的标准输出传送到command2的标准输入中。<code>ls /usr/bin | sort | less</code></p>
+<p><code>uniq</code> 将<strong>排好序的内容进行去重</strong>，因此<strong>经常与sort结合使用</strong> <code>ls /usr/bin | sort | uniq | less</code>，该命令行用于查看经过去重的内容，如果想要<strong>查看重复行的列表</strong>，<code>ls /usr/bin | sort | uniq -d | less</code></p>
+<p><code>wc</code> 显示文件中的行数、字数、字节数。<code>wc -l</code><strong>限制只显示行数</strong>。没有指定参数，接受标准输入内容。 <code>ls /usr/bin | sort | uniq | wc -l</code>显示去重之后的行数</p>
+<p><code>grep pattern [file...]</code> 模式内容复杂，这里不做展开。现在只关注简单文本的匹配。 参数<code>-i</code>搜索时忽略大小写，<code>-v</code>只输出和模式不匹配的行</p>
+<p><code>head/tail</code> 打印文件的开头部分/结尾部分 <code>-n</code>用来指定输出的行数，<code>-f</code>持续监视文件内容，可以用来打印日志文件，也可以直接用命令<code>tailf</code></p>
+<p><code>ls /usr/bin | tee ls.txt | grep zip</code> ：在使用grep命令过滤管道内容之前，先使用tee命令来获取整个目录文件并输出到ls.txt文件中。<strong>类似于一个T形管道</strong>，从标准输入得到数据，同时输出到标准输出和文件</p>
+<hr>
+<p>扩展</p>
+<p>通配符<code>*</code>会在命令执行前进行扩展，因此<code>echo *</code>会显示当前文件夹下的所有内容</p>
+<p><code>~</code>扩展为用户的主目录，可以指定用户 <code>echo ~tabase</code></p>
+<p><code>$((expression))</code>算术扩展，只支持整数，不支持小数。 <code>echo $((2 + 2))</code> 可以显示为4</p>
+<p>花括号扩展<strong>（中间不能有空格）</strong><code>echo Front-&#123;A,B,C&#125;-Back</code> 最终显示<code>Front-A-Back Front-B-Back Front-C-Back</code>    <code>echo num_&#123;1..3&#125;</code> 显示为<code>num_1 num_2 num_3</code>。花括号扩展也可以进行嵌套。可以用于创建一系列的文件或是目录<code>eg mkdir &#123;2009..2011&#125;-&#123;10..12&#125;</code></p>
+<p>参数扩展 <code>echo $USER</code>     查看所有的变量列表<code>printenv | less</code></p>
+<p>命令替换：将一个命令的输出作为一个扩展模式所使用 <code>ls -l $(which cp)</code> 可以将<code>which cp</code>的结果作为一个参数，然后<code>ls</code>展示列表</p>
+<p>使用<strong>双引号失效</strong> 单词分割、路径名扩展、~、花括号扩展，但是参数扩展，算数扩展和命令替代依然可以生效。<strong>单引号所有都失效</strong></p>
+<p><code>history | less</code> 可以查看最近使用的命令，<code>history | grep /usr/bin</code> 可以查看最近命令行中有 /usr/bin 的命令，结果中的第一个数字代表了该命令行在历史记录列表中的行号 <code>!num</code>其中num为相对应的行号。</p>
+<p>在bash中可以使用<code>Ctrl+R</code>，提示符发生改变，输入要查找的内容，得到历史记录列表，按下Enter就可以进行执行，也可以<code>Ctrl+J</code>进行复制到当前命令行</p>
+<p><code>id</code>可以获得用户身份标识</p>
+<p>用户账户定义在<code>/etc/passwd</code> 用户组定义在<code>/etc/group</code> <code>/etc/shadow</code>保存了用户的密码</p>
+<p>文件类型   </p>
+<ul>
+<li><code>-</code>普通文件</li>
+<li><code>d</code> 目录文件</li>
+<li><code>l</code> 符号链接。符号链接所有的文件属性全都是rwxrwxrwx，是一个伪属性值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>文件</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>允许打开和读取文件</td>
+<td>如果设置了执行权限，那么允许列出目录下的内容（剥夺了执行权限后还是可以列出内容和进入该目录）</td>
+</tr>
+<tr>
+<td>w</td>
+<td>允许写入或者截短文件；<del>如果也设置了执行权限，那么目录中的文件允许被创建、被删除以及被重命名</del></td>
+<td>允许创建、重命名、删除该目录下的文件</td>
+</tr>
+<tr>
+<td>x</td>
+<td>允许文件当作程序一样执行。</td>
+<td>允许进入目录下</td>
+</tr>
+</tbody></table>
+<p><code>chmod</code>改变文件模式，<strong>只有文件拥有者和超级用户才可以进行更改文件或目录的模式</strong>。r 4 w 2 x 1</p>
+<p>更改文件模式也可以使用符号表示法。分为3部分：会影响谁，要执行什么操作，要设置什么权限</p>
+<ul>
+<li><p>u 代表user  g 代表 群组   o 代表其他所有用户   a 代表所有u g o，如果没有用户字符，则默认使用a</p>
+</li>
+<li><p>操作符 + 表示增加一种权限，- 删除一种权限， = 表示直接赋值为该权限</p>
+</li>
+<li><p>权限由字符 rwx来指定</p>
+</li>
+</ul>
+<p><code>umask   [num]</code>  不带参数就是查看当前掩码值，带参数则是直接设置。设置为<code>0000</code>则表示取消掩码值的功能。理解：第一位的0用来表示一个八进制，后面3位对应着不同的用户，八进制拆开后对应为1的位置，则剥夺其权限。基本不用设置，使用系统默认</p>
+<p><code>su [-[l]] [user]</code> 切换用户。<code>-l</code>选项会去加载指定用户的运行环境，并且切换指定用户的工作目录，可以省略为<code>-</code></p>
+<p><code>sudo</code> 命令可以允许一个普通用户以一个不同的用户身份（通常是超级用户）来执行命令。并不需要超级用户的密码，只需要当前用户的密码进行验证</p>
+<p><code>chown [owner][:[group]] file...</code>用于更改文件所有者和所属群组。该命令更改的是文件所有者还是文件所属群组，取决于<code>[owner][:[groutp]]</code></p>
+<ul>
+<li><p><code>bob</code> 就是将文件当前的所有者变为用户bob</p>
+</li>
+<li><p><code>bob:users</code> 将文件所有者变为用户bob，并把文件所属群组变为users组</p>
+</li>
+<li><p><code>:admins</code> 将文件所属群组变为admins组，但是文件所有者不变</p>
+</li>
+<li><p><code>bob:</code> 将文件所有者变为用户bob，并把文件所属群组变为用户bob登陆系统时所属的组</p>
+</li>
+</ul>
+<p><code>passwd [user]</code> 可以更改指定user的密码</p>
+<hr>
+<p><code>ps</code>用于查看命令    显示结果中TTY代表进程的控制终端</p>
+<p><code>ps x</code>将显示所有的进程</p>
+<p><code>ps aux</code> 将输出更多信息</p>
+<p><code>top</code>查看机器运行情况的动态视图（默认每3秒一次刷新），ps查看的只是命令行键入时的机器状态的一个快照</p>
+<p><code>kill [-signal] PID...</code> 用于杀死进程</p>
+<ul>
+<li><p><code>2</code>   中断信号，用来发送一个信号给进程自行终止</p>
+</li>
+<li><p><code>9</code> 杀死信号，利用内核直接立即终止该进程，进程会立刻被终止，没有机会进行自我清理，或对当前工作的保存</p>
+</li>
+</ul>
+<hr>
+<p>printenv | less 显示当前环境变量，printenv USER 输出指定变量值</p>
+<p>set | less 也可以输出环境变量的值，但是是按字母顺序进行排序</p>
+<p>/etc/profile 适用于所有用户的全局配置脚本</p>
+<p>~/.bash_profile 是用户的个人启动文件，可以扩展或重写全局配置脚本中的设置</p>
+<p><del>/.bash_login 如果</del>/.bash_profile 缺失，则bash尝试读取此脚本</p>
+<p><del>/.profile 如果</del>/.bash_profile和~/.bash_login都缺失，读取此脚本</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/08/DFS/" rel="next" title="DFS">
+                <i class="fa fa-chevron-left"></i> DFS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B7%AF%E5%BE%84%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">系统路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">网络配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">jdk的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tomcat%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql%E9%85%8D%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">mysql配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hzq</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

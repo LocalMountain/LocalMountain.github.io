@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="LocalMountain">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="第一部分 基础知识第一章 为什么要关心Java 82014年3月更新Java 8，加入了很多新特性。 函数式编程、并行新思路、Stream API …  书中第一章节举例： Java8中提供了一个新的API（Stream），支持许多处理数据的并行操作，思路和SQL类似，将所需步骤抽象出来，具体的底层执行机制将Stream API进行实现。Stream是Java 8表示有序数据，并能灵活地表示这些数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stream">
+<meta property="og:url" content="http://example.com/2020/06/12/Stream/index.html">
 <meta property="og:site_name" content="LocalMountain">
+<meta property="og:description" content="第一部分 基础知识第一章 为什么要关心Java 82014年3月更新Java 8，加入了很多新特性。 函数式编程、并行新思路、Stream API …  书中第一章节举例： Java8中提供了一个新的API（Stream），支持许多处理数据的并行操作，思路和SQL类似，将所需步骤抽象出来，具体的底层执行机制将Stream API进行实现。Stream是Java 8表示有序数据，并能灵活地表示这些数">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-12T03:31:38.000Z">
+<meta property="article:modified_time" content="2021-08-08T14:39:55.557Z">
 <meta property="article:author" content="hzq">
 <meta name="twitter:card" content="summary">
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/"/>
+  <link rel="canonical" href="http://example.com/2020/06/12/Stream/"/>
 
 
 
 
 
-  <title>LocalMountain</title>
+  <title>Stream | LocalMountain</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,706 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/Linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LocalMountain">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/30/Linux/" itemprop="url">Linux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-30T09:26:29+08:00">
-                2020-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Linux系统的组成：</p>
-<ul>
-<li>linux内核（linus 团队管理）</li>
-<li>shell：用户与内核交互的接口</li>
-<li>文件系统：ext3、ext4等。windows 有 fat32 、ntfs</li>
-<li>第三方应用软件</li>
-</ul>
-<h4 id="系统路径："><a href="#系统路径：" class="headerlink" title="系统路径："></a>系统路径：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/ 表示根目录</span><br><span class="line">~ 表示/root</span><br><span class="line">etc存放系统配置目录</span><br><span class="line">home除了root以外所有用户默认在home下新建一个以用户名为文件夹名称的文件夹</span><br><span class="line">root用户root单独做文件夹</span><br><span class="line">usr所有用户安装的软件都在这个文件夹下</span><br><span class="line">	/usr/local下新建一个tmp，所有压缩包都上传到tmp中</span><br></pre></td></tr></table></figure>
-
-<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir 新建文件夹</span><br><span class="line">touch 新建文件</span><br><span class="line">pwd 打印工作目录</span><br><span class="line">vi vim 文本编辑器</span><br><span class="line">cat 查看文件全部内容</span><br><span class="line">head [-n] 查看文件前n行，默认10行</span><br><span class="line">tail [-n] 查看文件末尾n行，默认10行</span><br><span class="line">tailf 动态显示文件后n行内容</span><br><span class="line">echo &#x27;xxxx&#x27; &gt;&gt; 文件名   往文件中添加xxxx</span><br><span class="line">tar zxvf 文件名    解压文件v显示解压过程 </span><br><span class="line">cp 原文件 新文件位置    复制文件</span><br><span class="line">mv 原文件 新文件位置    移动文件，可以改名</span><br><span class="line">rm 文件名             删除文件</span><br></pre></td></tr></table></figure>
-
-<h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>centos7最小化安装没有ifconfig，替代命令是ip addr </p>
-<p>网络配置文件默认配置 <code>/etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TYPE=Ethernet # 网卡类型：为以太网 </span><br><span class="line">PROXY_METHOD=none # 代理方式：关闭状态 </span><br><span class="line">BROWSER_ONLY=no # 只是浏览器：否 </span><br><span class="line">BOOTPROTO=dhcp # 网卡的引导协议：DHCP[中文名称: 动态主机配置协议] </span><br><span class="line">DEFROUTE=yes # 默认路由：是, 不明白的可以百度关键词 `默认路由` </span><br><span class="line">IPV4_FAILURE_FATAL=no # 是不开启IPV4致命错误检测：否 </span><br><span class="line">IPV6INIT=yes # IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_AUTOCONF=yes # IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_DEFROUTE=yes # IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6] </span><br><span class="line">IPV6_FAILURE_FATAL=no # 是不开启IPV6致命错误检测：否 </span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy # IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略] </span><br><span class="line">NAME=ens33 # 网卡物理设备名称 </span><br><span class="line">UUID=f47bde51-fa78-4f79-b68f-d5dd90cfc698 # 通用唯一识别码, 每一个网卡都会有, 不能重复, 否两台linux只有一台网卡可用 </span><br><span class="line">DEVICE=ens33 # 网卡设备名称, 必须和 `NAME` 值一样 </span><br><span class="line">ONBOOT=no # 是否开机启动， 要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes`</span><br></pre></td></tr></table></figure>
-
-<p>需要设置的内容</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static    # 设置为静态</span><br><span class="line">ONBOOT=yes # 网卡启动方式试纸为开机自启</span><br><span class="line">IPADDR=192.168.xxx.xxx</span><br><span class="line">NETMASK=255.255.255.0   或者PREFIX=24</span><br><span class="line">GATEWAY=192.168.xxx.xxx</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="jdk的配置"><a href="#jdk的配置" class="headerlink" title="jdk的配置"></a>jdk的配置</h4><p>1.压缩包上传到服务器/usr/local/tmp<br>2.解压tar包   <code># tar zxvf tar包名</code><br>3.把解压后文件复制到/usr/local/jdk   <code># cp -r jdk1.8 /usr/local/jdk</code><br>4.配置环境变量   <code># vim /etc/profile</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL</span><br><span class="line">export JAVA_HOME=/usr/local/jdk8</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar(jdk1.8可以不配)</span><br></pre></td></tr></table></figure>
-<p>5.加载环境变量配置文件 <code># source /etc/profile</code></p>
-<h4 id="tomcat配置"><a href="#tomcat配置" class="headerlink" title="tomcat配置"></a>tomcat配置</h4><p>1.压缩包上传到服务器/usr/local/tmp<br>2.解压tar包<br>3.把解压后文件复制到/usr/local/tomcat<br>4.配置环境变量 <code># vim /etc/profile</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export TOMCAT_HOME=/usr/local/tomcat8</span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat8</span><br></pre></td></tr></table></figure>
-<p>5.更改防火墙放行8080端口 <code># vim /etc/sysconfig/iptables</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>6.重启防火墙服务 <code># service iptables restart</code><br>7.启动tomcat, 在tomcat的bin目录下<code># ./startup.sh &amp; tailf /usr/local/tomcat/logs/catalina.out</code></p>
-<h4 id="mysql配置"><a href="#mysql配置" class="headerlink" title="mysql配置"></a>mysql配置</h4><p>1.压缩包上传文件<br>2.解压tar包<br>3.把解压后的文件复制到/usr/local/mysql<br>4.新建一个用户组和用户讲其赋给mysql </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd -r -g mysql mysql</span><br></pre></td></tr></table></figure>
-<p>5.在/usr/local/mysql中，赋予权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chgrp -R mysql .</span><br><span class="line"># chown -R mysql .</span><br></pre></td></tr></table></figure>
-<p>6.判断是否有my.cnf <code># ls /etc/my.cnf</code>有则删除<br>7.初始化数据库 <code># ./scripts/mysql_install_db --user=mysql</code><br>8.复制my.cnf文件 <code># cp support-files/my-default.cnf /etc/my.cnf</code><br>9.复制启动文件 <code># cp support-files/mysql.server /etc/rc.d/init.d/mysql</code><br>10.添加软连接 <code># ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql</code><br>11.启动mysql服务 <code># service mysql start</code><br>12.mysql -u root -p可以使用mysql数据库</p>
-<p>远程连接mysql<br>更新root的密码<br><code>mysql&gt; update user set password=password(&quot;root&quot;) where user=&#39;root&#39;;</code><br><code>flush privileges</code><br>添加root的远程访问权限<br><code>mysql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;root&#39; with grant option;</code><br>开放防火墙端口<code># vim /etc/sysconfig/iptables</code></p>
-<hr>
-<p>提示符#为超级用户$为普通用户</p>
-<p><code>ls </code>      （ls -li可以查看链接的inode）</p>
-<ul>
-<li><code>-a</code>     <code>--all</code> 列出所有文件</li>
-<li><code>-d</code>     <code>--directory</code> 显示当前文件夹</li>
-<li><code>-F</code>     <code>--classify</code> 在名字后面加上类型提示符（例如，如果是目录名，加上斜杠）</li>
-<li><code>-h</code>     <code>--human-readable</code> 以长格式列出时，字节数有单位方便阅读</li>
-<li><code>-l</code>        长格式输出</li>
-<li><code>-r</code>    <code>--reverse</code> 方向输出</li>
-<li><code>-S</code>        文件占用从大到小输出</li>
-<li><code>-t</code>          按修改时间输出</li>
-</ul>
-<p><code>file filename</code>用来查看文件类型</p>
-<p><code>less filename</code>用来查看文件内容    <code>page up</code>和<code>b</code><strong>往前翻一页</strong>  <code>page down</code>和<code>space</code><strong>往后翻</strong>   <code>G</code>末尾  <code> g</code>开头   <code>/characters</code> 往下寻找指定的字符串  <code>n</code>下一个指定字符串  <code>N</code>前一个   <code>h</code>显示帮助屏幕   <code>q</code>退出less</p>
-<p>通配符  <code>*</code> 匹配任意多个字符   <code>?</code><strong>只匹配一个</strong>字符   <code>[characters]</code> 匹配<strong>一个</strong>字符集中的字符 <code>[!characters]</code> 匹配一个不属于字符集中的字符  <code>[[:class:]]</code> 匹配一个指定字符类中的字符</p>
-<ul>
-<li>字符类<ul>
-<li><code>[:alnum:]</code> 任意一个字母或是数字</li>
-<li><code>[:alpha:]</code> 任意一个字母</li>
-<li><code>[:digit:]</code> 任意一个数字</li>
-<li><code>[:lower:]</code> 任意一个小写字母</li>
-<li><code>[:upper:]</code> 任意一个大写字母</li>
-</ul>
-</li>
-</ul>
-<p><code>mkdir directory...</code> 可以创建一个或是多个目录</p>
-<p><code>cp item1 item2</code> 将单个文件或目录<code>item1</code>复制到文件或目录<code>item2</code>中</p>
-<p><code>cp item... directory</code> 将多个项目复制进一个目录中。<strong>并且如果是3个以上的参数情况下，默认最后一个参数是目录名，如果不是则报错</strong></p>
-<ul>
-<li><code>-a</code>   <code>--archive</code> 复制该文件的所有权和权限。</li>
-<li><code>-i</code>     <code>--interactive</code> 覆盖一个已存在的文件前，提示用户进行确认</li>
-<li><code>-r</code>     <code>--recursive</code>  递归复制目录和内容，复制目录时需要这个选项（或是-a）。<strong>如果复制目的地目录不存在，相当于是拷贝当前目录，如果已经存在，那么就复制这个目录到指定目录底下</strong></li>
-<li><code>-u</code>    <code>--update</code> 当将文件从一个目录复制到另一个目录中时，只会复制目标目录中不存在的文件或是已经修改的文件</li>
-<li><code>-v</code>    <code>--verbose</code> 显示复制流程</li>
-</ul>
-<p><code>mv item1 item2</code>   将文件或目录item1移动或是重命名为item2</p>
-<p><code>mv item... directory</code> 将一个或多个文件移动到指定目录下</p>
-<p>mv命令参数与cp命令共享-i    -u   -v</p>
-<p><code>rm item...</code> 删除多个文件</p>
-<ul>
-<li><code>-i</code>    <code>--interactive</code> 提示确认</li>
-<li><code>-r</code>     <code>--recursive</code> 递归的删除</li>
-<li><code>-f</code>      <code>--force</code> 强制删除</li>
-<li><code>-v</code>     <code>--verbose</code>  显示删除过程</li>
-</ul>
-<p><code>ln file link</code>创建硬链接</p>
-<p><code>ln -s file link</code>(创建符号链接时中的file应该为link所在位置的相对位置)</p>
-<p>硬链接：与普通文件没什么区别，相当于是做了一个复制，但是是同一个文件，inode都是指向同一个文件在硬盘中的区域。每一个文件至少都包含一个硬链接（在<code>ls -li</code> 中的i参数用来展示inode，就可以看到两个硬链接的inode数值相同）。不能硬链接文件夹</p>
-<p>软链接（符号链接）：可以简单理解为windows中的快捷方式，一旦原文件被删除，该链接就会失效，linux中表现为红色。可以链接为文件夹</p>
-<p>命令分为4种情况</p>
-<ul>
-<li>可执行程序：类似cp 就像/bin/cp目录中</li>
-<li>shell内置：cd是shell内置</li>
-<li>shell函数：小型shell脚本</li>
-<li>alias命令：命令的别名</li>
-</ul>
-<p><code>type command</code>用于显示该command是上述四种中的哪一种命令。也可以用该命令进行判断该command是否存在</p>
-<p><code>which</code>显示命令的位置，因为要指示命令的位置，所以<strong>只适用于可执行程序</strong>，例如 <code>which ls</code>结果为<code>/bin/ls</code> <code>which cp</code>结果为<code>/bin/cp</code>   。但是我测试好像大部分命令都可以用，并且能够展示别名和位置，比如<code>which cd</code></p>
-<p><code>alias name=&#39;string&#39;</code> 其中string中的命令如果有多个，可以用 <code>;</code> 分开。例如<code>alias foo=&#39;cd /usr; ls; cd -&#39;</code>。直接使用<code>alias</code>可以查看当前系统中默认的别名命令。删除别名用<code>unalias name</code>。一个shell会话结束时，这些别名也随之消失，也可以通过向系统文件添加别名永久保存（后面学）</p>
-<p><code>&gt;</code>可以改变标准输出内容的输出位置，默认标准输出内容显示在屏幕上，可以用此命令将内容重定向到文件中。<code>ls /usr/bin &gt; ls-output.txt</code>这个命令只会重定向标准输出位置，但不会重定向标准错误位置，所以错误信息还是会显示在屏幕上</p>
-<p><code>&gt;</code>每次都是从头开始写入文件，所以新的文件内容会覆盖原来的文件内容，空的文件内容可以导致文件内容删除 <code>&gt; ls-output.txt</code>就删除了ls-output.txt的文件内容，如果说没有该文件就是创建了这个新文件</p>
-<p><code>&gt;&gt;</code>从原文件内容尾部进行添加文件内容，不会覆盖原文件内容</p>
-<p>0， 1， 2 分别用来索引标准输入文件、标准输出文件、标准错误文件。因此可以用 <code>ls /bin/usr/ 2&gt; ls-error.txt</code>来重定向标准错误文件</p>
-<p><code>ls /bin/usr &gt; ls-output.txt 2&gt;&amp;1</code> 可以将标准输出和标准错误都重定向到一个文件中。<strong>并且顺序不能变，必须先指定标准输出，然后再指定标准错误</strong>。<code>ls /bin/usr &amp;&gt; ls-output.txt</code><strong>新方式</strong></p>
-<p><code>ls /bin/usr 2&gt; /dev/null</code> 将错误信息输入到/dev/null中，这个/dev/null特殊文件不对输入做任何处理，相当于忽视产生的错误信息。</p>
-<p><code>cat [file...]</code> 用来显示短的文本文件。接收多个参数时，可以用来将文件拼接，（最后一个参数应该是完成拼接的文件名，待实验）</p>
-<p>如果cat没有给定参数，将从标准输入读取内容，就是等着键盘输入内容，键盘输入完成后，<strong>Ctrl+D表明输入完毕</strong>。同时，因为没有带参数，没有指定文件名，那么输入的内容将复制到标准输出文件中(也就是屏幕上)。</p>
-<p><code>command1 | command2</code> 将command1的标准输出传送到command2的标准输入中。<code>ls /usr/bin | sort | less</code></p>
-<p><code>uniq</code> 将<strong>排好序的内容进行去重</strong>，因此<strong>经常与sort结合使用</strong> <code>ls /usr/bin | sort | uniq | less</code>，该命令行用于查看经过去重的内容，如果想要<strong>查看重复行的列表</strong>，<code>ls /usr/bin | sort | uniq -d | less</code></p>
-<p><code>wc</code> 显示文件中的行数、字数、字节数。<code>wc -l</code><strong>限制只显示行数</strong>。没有指定参数，接受标准输入内容。 <code>ls /usr/bin | sort | uniq | wc -l</code>显示去重之后的行数</p>
-<p><code>grep pattern [file...]</code> 模式内容复杂，这里不做展开。现在只关注简单文本的匹配。 参数<code>-i</code>搜索时忽略大小写，<code>-v</code>只输出和模式不匹配的行</p>
-<p><code>head/tail</code> 打印文件的开头部分/结尾部分 <code>-n</code>用来指定输出的行数，<code>-f</code>持续监视文件内容，可以用来打印日志文件，也可以直接用命令<code>tailf</code></p>
-<p><code>ls /usr/bin | tee ls.txt | grep zip</code> ：在使用grep命令过滤管道内容之前，先使用tee命令来获取整个目录文件并输出到ls.txt文件中。<strong>类似于一个T形管道</strong>，从标准输入得到数据，同时输出到标准输出和文件</p>
-<hr>
-<p>扩展</p>
-<p>通配符<code>*</code>会在命令执行前进行扩展，因此<code>echo *</code>会显示当前文件夹下的所有内容</p>
-<p><code>~</code>扩展为用户的主目录，可以指定用户 <code>echo ~tabase</code></p>
-<p><code>$((expression))</code>算术扩展，只支持整数，不支持小数。 <code>echo $((2 + 2))</code> 可以显示为4</p>
-<p>花括号扩展<strong>（中间不能有空格）</strong><code>echo Front-&#123;A,B,C&#125;-Back</code> 最终显示<code>Front-A-Back Front-B-Back Front-C-Back</code>    <code>echo num_&#123;1..3&#125;</code> 显示为<code>num_1 num_2 num_3</code>。花括号扩展也可以进行嵌套。可以用于创建一系列的文件或是目录<code>eg mkdir &#123;2009..2011&#125;-&#123;10..12&#125;</code></p>
-<p>参数扩展 <code>echo $USER</code>     查看所有的变量列表<code>printenv | less</code></p>
-<p>命令替换：将一个命令的输出作为一个扩展模式所使用 <code>ls -l $(which cp)</code> 可以将<code>which cp</code>的结果作为一个参数，然后<code>ls</code>展示列表</p>
-<p>使用<strong>双引号失效</strong> 单词分割、路径名扩展、~、花括号扩展，但是参数扩展，算数扩展和命令替代依然可以生效。<strong>单引号所有都失效</strong></p>
-<p><code>history | less</code> 可以查看最近使用的命令，<code>history | grep /usr/bin</code> 可以查看最近命令行中有 /usr/bin 的命令，结果中的第一个数字代表了该命令行在历史记录列表中的行号 <code>!num</code>其中num为相对应的行号。</p>
-<p>在bash中可以使用<code>Ctrl+R</code>，提示符发生改变，输入要查找的内容，得到历史记录列表，按下Enter就可以进行执行，也可以<code>Ctrl+J</code>进行复制到当前命令行</p>
-<p><code>id</code>可以获得用户身份标识</p>
-<p>用户账户定义在<code>/etc/passwd</code> 用户组定义在<code>/etc/group</code> <code>/etc/shadow</code>保存了用户的密码</p>
-<p>文件类型   </p>
-<ul>
-<li><code>-</code>普通文件</li>
-<li><code>d</code> 目录文件</li>
-<li><code>l</code> 符号链接。符号链接所有的文件属性全都是rwxrwxrwx，是一个伪属性值</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>文件</th>
-<th>目录</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r</td>
-<td>允许打开和读取文件</td>
-<td>如果设置了执行权限，那么允许列出目录下的内容（剥夺了执行权限后还是可以列出内容和进入该目录）</td>
-</tr>
-<tr>
-<td>w</td>
-<td>允许写入或者截短文件；<del>如果也设置了执行权限，那么目录中的文件允许被创建、被删除以及被重命名</del></td>
-<td>允许创建、重命名、删除该目录下的文件</td>
-</tr>
-<tr>
-<td>x</td>
-<td>允许文件当作程序一样执行。</td>
-<td>允许进入目录下</td>
-</tr>
-</tbody></table>
-<p><code>chmod</code>改变文件模式，<strong>只有文件拥有者和超级用户才可以进行更改文件或目录的模式</strong>。r 4 w 2 x 1</p>
-<p>更改文件模式也可以使用符号表示法。分为3部分：会影响谁，要执行什么操作，要设置什么权限</p>
-<ul>
-<li><p>u 代表user  g 代表 群组   o 代表其他所有用户   a 代表所有u g o，如果没有用户字符，则默认使用a</p>
-</li>
-<li><p>操作符 + 表示增加一种权限，- 删除一种权限， = 表示直接赋值为该权限</p>
-</li>
-<li><p>权限由字符 rwx来指定</p>
-</li>
-</ul>
-<p><code>umask   [num]</code>  不带参数就是查看当前掩码值，带参数则是直接设置。设置为<code>0000</code>则表示取消掩码值的功能。理解：第一位的0用来表示一个八进制，后面3位对应着不同的用户，八进制拆开后对应为1的位置，则剥夺其权限。基本不用设置，使用系统默认</p>
-<p><code>su [-[l]] [user]</code> 切换用户。<code>-l</code>选项会去加载指定用户的运行环境，并且切换指定用户的工作目录，可以省略为<code>-</code></p>
-<p><code>sudo</code> 命令可以允许一个普通用户以一个不同的用户身份（通常是超级用户）来执行命令。并不需要超级用户的密码，只需要当前用户的密码进行验证</p>
-<p><code>chown [owner][:[group]] file...</code>用于更改文件所有者和所属群组。该命令更改的是文件所有者还是文件所属群组，取决于<code>[owner][:[groutp]]</code></p>
-<ul>
-<li><p><code>bob</code> 就是将文件当前的所有者变为用户bob</p>
-</li>
-<li><p><code>bob:users</code> 将文件所有者变为用户bob，并把文件所属群组变为users组</p>
-</li>
-<li><p><code>:admins</code> 将文件所属群组变为admins组，但是文件所有者不变</p>
-</li>
-<li><p><code>bob:</code> 将文件所有者变为用户bob，并把文件所属群组变为用户bob登陆系统时所属的组</p>
-</li>
-</ul>
-<p><code>passwd [user]</code> 可以更改指定user的密码</p>
-<hr>
-<p><code>ps</code>用于查看命令    显示结果中TTY代表进程的控制终端</p>
-<p><code>ps x</code>将显示所有的进程</p>
-<p><code>ps aux</code> 将输出更多信息</p>
-<p><code>top</code>查看机器运行情况的动态视图（默认每3秒一次刷新），ps查看的只是命令行键入时的机器状态的一个快照</p>
-<p><code>kill [-signal] PID...</code> 用于杀死进程</p>
-<ul>
-<li><p><code>2</code>   中断信号，用来发送一个信号给进程自行终止</p>
-</li>
-<li><p><code>9</code> 杀死信号，利用内核直接立即终止该进程，进程会立刻被终止，没有机会进行自我清理，或对当前工作的保存</p>
-</li>
-</ul>
-<hr>
-<p>printenv | less 显示当前环境变量，printenv USER 输出指定变量值</p>
-<p>set | less 也可以输出环境变量的值，但是是按字母顺序进行排序</p>
-<p>/etc/profile 适用于所有用户的全局配置脚本</p>
-<p>~/.bash_profile 是用户的个人启动文件，可以扩展或重写全局配置脚本中的设置</p>
-<p><del>/.bash_login 如果</del>/.bash_profile 缺失，则bash尝试读取此脚本</p>
-<p><del>/.profile 如果</del>/.bash_profile和~/.bash_login都缺失，读取此脚本</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/08/DFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LocalMountain">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/08/DFS/" itemprop="url">DFS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T07:24:45+08:00">
-                2020-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="回溯问题"><a href="#回溯问题" class="headerlink" title="回溯问题"></a>回溯问题</h3><p><strong>回溯问题</strong>都可用dfs模板来解决</p>
-<h4 id="一个数组中所有元素的全排列问题"><a href="#一个数组中所有元素的全排列问题" class="headerlink" title="一个数组中所有元素的全排列问题"></a>一个数组中所有元素的全排列问题</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; solution(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (len &lt;= <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    <span class="keyword">int</span> vis = <span class="number">0</span>;</span><br><span class="line">    Deque&lt;Integer&gt; path = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    dfs(nums, len, <span class="number">0</span>, vis, path, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// nums用来指定原来的数组，len可以不用，可以直接用nums.length读取</span></span><br><span class="line"><span class="comment">// vis访问数组，path是已经访问的元素的集合，res是结果集</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> depth, <span class="keyword">int</span> vis, Deque&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (len == depth) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">//可以直接return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (((vis &gt;&gt; i) &amp; <span class="number">1</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">            vis ^= (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">            path.addLast(nums[i]);</span><br><span class="line">            dfs(nums, len, depth + <span class="number">1</span>, vis, path, res);</span><br><span class="line">            vis ^= (<span class="number">1</span> &lt;&lt; i);  <span class="comment">//以下两步就是回溯</span></span><br><span class="line">            path.removeLast();  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="八皇后"><a href="#八皇后" class="headerlink" title="八皇后"></a>八皇后</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; queensSolution(<span class="keyword">int</span> n) &#123;</span><br><span class="line">    List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    String base = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        base += <span class="string">&#x27;n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(n, base, <span class="keyword">new</span> ArrayList&lt;&gt;(), res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, String base, List&lt;String&gt; board, List&lt;List&lt;String&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (board.size() == n) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(board));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!check(board, i)) <span class="keyword">continue</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(base);</span><br><span class="line">        sb.setCharAt(i, <span class="string">&#x27;Q&#x27;</span>);</span><br><span class="line">        String newLine = sb.toString();</span><br><span class="line">        board.add(newLine);</span><br><span class="line">        dfs(n, base, board, res);</span><br><span class="line">        board.remove(board.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(List&lt;String&gt; board, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = board.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (board.get(i).charAt(index) == <span class="string">&#x27;Q&#x27;</span></span><br><span class="line">            || (index-(board.size()-i) &gt;= <span class="number">0</span> &amp;&amp; board.get(i).charAt(index-(board.size()-i)) == <span class="string">&#x27;Q&#x27;</span>)</span><br><span class="line">            || ((index+(board.size()-i) &lt; board.get(i).length()) &amp;&amp; board.get(i).charAt(index+(board.size()-i)) == <span class="string">&#x27;Q&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2020.9.3每日一题版本</span></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; solveNQueens(<span class="keyword">int</span> n) &#123;</span><br><span class="line">    List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    String row = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) row += <span class="string">&quot;.&quot;</span>;</span><br><span class="line">    dfs(row, <span class="keyword">new</span> ArrayList&lt;&gt;(n), res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(String row, List&lt;String&gt; board, List&lt;List&lt;String&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (board.size() &gt;= row.length()) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(board));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder line = <span class="keyword">new</span> StringBuilder(row);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!check(row, i, board)) <span class="keyword">continue</span>;  <span class="comment">// 当前位置无效</span></span><br><span class="line">        line.setCharAt(i, <span class="string">&#x27;Q&#x27;</span>);</span><br><span class="line">        board.add(line.toString());</span><br><span class="line">        dfs(row, board, res);</span><br><span class="line">        line.setCharAt(i, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        board.remove(board.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(String line, <span class="keyword">int</span> index, List&lt;String&gt; board)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> currRow = board.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; line.length(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == index &amp;&amp; board.get(i).charAt(j) == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(j - index) == currRow - i &amp;&amp; board.get(i).charAt(j) == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="DFS的经典问题"><a href="#DFS的经典问题" class="headerlink" title="DFS的经典问题"></a>DFS的经典问题</h3><h4 id="841-钥匙和房间"><a href="#841-钥匙和房间" class="headerlink" title="841.钥匙和房间"></a>841.钥匙和房间</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，...，N-1，并且房间里可能有一些钥匙能使你进入下一个房间。</span><br><span class="line"></span><br><span class="line">在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，每个钥匙 rooms[i][j] 由 [0,1，...，N-1] 中的一个整数表示，其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。</span><br><span class="line"></span><br><span class="line">最初，除 0 号房间外的其余所有房间都被锁住。</span><br><span class="line"></span><br><span class="line">你可以自由地在房间之间来回走动。</span><br><span class="line"></span><br><span class="line">如果能进入每个房间返回 true，否则返回 false。</span><br></pre></td></tr></table></figure>
-
-<p>这里就不需要回溯，直接判断一个图的所有节点是不是能够全部遍历到    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canVisitAllRooms</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = rooms.size();</span><br><span class="line">    <span class="keyword">boolean</span>[] vis = <span class="keyword">new</span> <span class="keyword">boolean</span>[N];</span><br><span class="line">    dfs(rooms, <span class="number">0</span>, vis);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">boolean</span> flag : vis) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!flag) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms, <span class="keyword">int</span> index, <span class="keyword">boolean</span>[] vis)</span> </span>&#123;</span><br><span class="line">    vis[index] = <span class="keyword">true</span>;</span><br><span class="line">    List&lt;Integer&gt; nextRooms = rooms.get(index);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> nextRoom : nextRooms) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[nextRoom]) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(rooms, nextRoom, vis);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>最最初始的版本就是用一个boolean数组来记录当前所选取的值</p>
-<h4 id="39-组合排列"><a href="#39-组合排列" class="headerlink" title="39.组合排列"></a>39.组合排列</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (candidates.length &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;(res);</span><br><span class="line">        dfs(candidates, <span class="number">0</span>, target, <span class="keyword">new</span> LinkedList&lt;Integer&gt;(), res);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;(res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> index, <span class="keyword">int</span> target, Deque&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (target == <span class="number">0</span>) res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; candidates.length; i++) &#123;</span><br><span class="line">            path.addLast(candidates[i]);</span><br><span class="line">            dfs(candidates, i, target - candidates[i], path, res);</span><br><span class="line">            path.removeLast();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>详细说明上面是如何规避2 2 3 和 2 3 2的</p>
-<p>现在数组中的待选值是 2 3 4</p>
-<p>那么现在选择了2   那么下一次递归就是在  2 3 4中继续选择，</p>
-<p>当选择结果集到 2 3 的时候下一次选择就是只能选取3之后的值，在 3 4 中继续选择，就没有2了</p>
-<p>当然这个是有条件的，要求该数组中的数字都是不重复的，但是可以重复选取。</p>
-</blockquote>
-<p>给定的待选数组就是重复的情况下   例如在备选数组就是1 1 2 是有重复的</p>
-<p>比如1 1 2 去全排列，那么1 是用过的，但是有2个1，所以1可以使用2次</p>
-<p>所以这里不是单纯得用一个boolean数组看是否为true或false，而是用一个数组计数，只要大于0就可以使用</p>
-<p>40 组合综合II</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum2(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (candidates.length &lt; <span class="number">1</span>) <span class="keyword">return</span> res;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : candidates) map.put(num, map.getOrDefault(num, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[map.size()];</span><br><span class="line">        <span class="keyword">int</span>[] counts = <span class="keyword">new</span> <span class="keyword">int</span>[map.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> key : map.keySet()) &#123;</span><br><span class="line">            nums[index] = key;</span><br><span class="line">            counts[index++] = map.get(key);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(nums, counts, <span class="number">0</span>, target, <span class="keyword">new</span> LinkedList&lt;Integer&gt;(), res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span>[] counts, <span class="keyword">int</span> index, <span class="keyword">int</span> target, Deque&lt;Integer&gt; path,List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (target == <span class="number">0</span>) res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (counts[i] &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            counts[i]--;</span><br><span class="line">            path.addLast(nums[i]);</span><br><span class="line">            dfs(nums, counts, i, target - nums[i], path, res);</span><br><span class="line">            counts[i]++;</span><br><span class="line">            path.removeLast();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里也是用到了index，对于index的理解还是和之前的相同，那么就是说备选节点是1 2 7 4的话，现在要拼成数组8，那么选择1 的时候再选择一个7就可以解决问题，这就是其中一种排列 [1, 7]</p>
-<p>但是如果选择到7 的时候，因为index的限制，只能选择7后面的数字 7 4 ， 而不能再向前选取</p>
-<p>总结：</p>
-<ul>
-<li>可以用index来规避数组中重复的选取，重复是指 1 1 2 和1 2 1 算一种（当然也可以用set来规避），index主要是用来在结果集进行去重(全排列问题就不能这样解决，因为全排列中1 1 2 和1 2 1算两种)</li>
-<li>如果在备选数组中出现了重复数字，那么可以用一个map来计数，然后用两个数组去分解这个map。选择集中去重用map计数</li>
-</ul>
-<hr>
-<h4 id="接触到新的DFS，原始的DFS代码"><a href="#接触到新的DFS，原始的DFS代码" class="headerlink" title="接触到新的DFS，原始的DFS代码"></a>接触到新的DFS，原始的DFS代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// grid 用数组的形式来表示图，x表示当前的节点</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[][] grid, <span class="keyword">int</span> x, <span class="keyword">boolean</span>[] vis)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (grid[x][i] == <span class="number">1</span> &amp;&amp; !vis[i]) &#123;  <span class="comment">// 如果x到i之间连通，并且i之前未被访问</span></span><br><span class="line">            vis[i] = <span class="keyword">true</span>;</span><br><span class="line">            dfs(grid, i, vis);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/16/Maven/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LocalMountain">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/16/Maven/" itemprop="url">Maven</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-16T23:44:47+08:00">
-                2020-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>maven基于java，必须要添加jdk，因此要先配置 JAVA_HOME 后再配置 Maven</p>
-<p>从官网将maven下载到本地后进行解压，将Maven的根目录配置到系统环境变量中MAVEN_HOME，将bin目录配置到path变量中</p>
-<h4 id="自定义设置"><a href="#自定义设置" class="headerlink" title="自定义设置"></a>自定义设置</h4><ol>
-<li><p>更改maven的本地仓库地址</p>
-<p>打开maven目录 -&gt; conf -&gt; setting.xml</p>
-<p>添加仓库位置配置<localRepository>F:/m2/repository</localRepository></p>
-</li>
-<li><p>更换镜像源</p>
-</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">id</span>&gt;</span>nexux-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexux aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="使用-Maven-执行项目"><a href="#使用-Maven-执行项目" class="headerlink" title="使用 Maven 执行项目"></a>使用 Maven 执行项目</h4><p>执行项目</p>
-<p>1.编译java项目</p>
-<p>​    mvn compile</p>
-<p>2.执行 main 方法</p>
-<p>​    mvn exec:java -Dexec.mainClass=”com.xxx.demo.Hello”</p>
-<h4 id="Maven命令"><a href="#Maven命令" class="headerlink" title="Maven命令"></a>Maven命令</h4><p>mvn [plugin-name]:[goal-name]</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mvn -version</td>
-<td>显示版本信息</td>
-</tr>
-<tr>
-<td>mvn clean</td>
-<td>清理项目生产的临时文件，一般是模块下的target目录</td>
-</tr>
-<tr>
-<td>mvn compile</td>
-<td>编译源代码，一般编译模块下的src/main/java目录</td>
-</tr>
-<tr>
-<td>mvn package</td>
-<td>项目打包工具，会在模块下的target目录生成jar或war文件</td>
-</tr>
-<tr>
-<td>mvn test</td>
-<td>测试命令，或执行src/test/java下junit的测试用例</td>
-</tr>
-<tr>
-<td>mvn install</td>
-<td>将打包的jar/war文件复制到你的本地仓库中，供其他模块使用</td>
-</tr>
-<tr>
-<td>mvn deploy</td>
-<td>将打包的文件发布到远程参考，提供其他人员进行下载依赖</td>
-</tr>
-<tr>
-<td>mvn site</td>
-<td>生成项目相关信息的网站</td>
-</tr>
-<tr>
-<td>mvn eclipse:eclipse</td>
-<td>将项目转换为Eclipse项目</td>
-</tr>
-<tr>
-<td>mvn dependency:tree</td>
-<td>打印出项目的整个依赖树</td>
-</tr>
-<tr>
-<td>mvn archetype:generate</td>
-<td>创建Maven的普通java项目</td>
-</tr>
-<tr>
-<td>mvn tomcat7:run</td>
-<td>在tomcat容器中运行web项目</td>
-</tr>
-<tr>
-<td>mvn jetty:run</td>
-<td>调用Jetty插件的run目标在jetty servlet容器中启动web应用</td>
-</tr>
-</tbody></table>
-<p>运行mvn命令的时候必须要在pom.xml所在的当前文件夹进行运行。否则需要指定命令参数</p>
-<p>-D传入属性参数</p>
-<p><code>mvn package -Dmaven.test.skip=true</code></p>
-<p><code>mvn test -Dtest=类名</code></p>
-<p>-P使用指定的Profile配置</p>
-<p>如果项目中有多个环境，如开发、测试、预发、正式等</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">env</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>qa<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">env</span>&gt;</span>qa<span class="tag">&lt;/<span class="name">env</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filters</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">filter</span>&gt;</span>config/$&#123;env&#125;.properties<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filters</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>profiles定义了各个环境的变量id，filters中定义了变量配置文件的地址，其中地址中的环境变量就是上面profile中配置的值，resources中定义哪些目录下的文件会被配置文件中的定义的变量替换</p>
-<p><code>mvn package -Pdec -Dmaven.test.skip=true</code>表示打包本地环境，并跳过单元测试</p>
-<h4 id="集合-tomcat-或-jetty"><a href="#集合-tomcat-或-jetty" class="headerlink" title="集合 tomcat 或 jetty"></a>集合 tomcat 或 jetty</h4><p>如果需要用 maven 启动 tomcat 或 jetty，则需要在 maven 中的 build 标签中进行 plugin 配置</p>
-<p>然后可以使用 <code>mvn jetty:run -Djetty.port=8899</code> (这里需要删除 plugin 中的端口配置)</p>
-<h4 id="本地仓库和远程仓库"><a href="#本地仓库和远程仓库" class="headerlink" title="本地仓库和远程仓库"></a>本地仓库和远程仓库</h4><p>本地仓库即为本地下载好的 jar 包库，远程仓库即为远程存储的。</p>
-<h5 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h5><p>默认情况下，每个用户在自己的用户目录下都有一个路径为.m2/repository的仓库目录，可以进行修改</p>
-<h5 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h5><p>远程仓库分为 3 种：中央仓库、私服、其他公共库</p>
-<p>私服就类似于 美团 自己的 maven 仓库</p>
-<h4 id="Maven-的打包操作"><a href="#Maven-的打包操作" class="headerlink" title="Maven 的打包操作"></a>Maven 的打包操作</h4><p>对不同的环境进行打包操作，添加 profile 配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiless</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开发环境--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">env</span>&gt;</span>   <span class="comment">&lt;!--与环境的文件夹保持一致，即为resources文件夹下的dev目录--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定其为默认的环境--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--测试环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>test<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">env</span>&gt;</span>test<span class="tag">&lt;/<span class="name">env</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--生产环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>product<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">env</span>&gt;</span>product<span class="tag">&lt;/<span class="name">env</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiless</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>设置资源文件配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resouces/$&#123;env&#125;<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*。properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.tld<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>flase<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>使用命令 <code>mvn package -Pdev -Dmaven.test.skip=true</code> 进行环境的选择打包</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -963,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/12/Stream/" itemprop="url">Stream</a></h1>
+          <h1 class="post-title" itemprop="name headline">Stream</h1>
         
 
         <div class="post-meta">
@@ -1015,9 +319,7 @@
       
 
       
-        
-          
-            <h2 id="第一部分-基础知识"><a href="#第一部分-基础知识" class="headerlink" title="第一部分 基础知识"></a>第一部分 基础知识</h2><h3 id="第一章-为什么要关心Java-8"><a href="#第一章-为什么要关心Java-8" class="headerlink" title="第一章 为什么要关心Java 8"></a>第一章 为什么要关心Java 8</h3><p>2014年3月更新Java 8，加入了很多新特性。</p>
+        <h2 id="第一部分-基础知识"><a href="#第一部分-基础知识" class="headerlink" title="第一部分 基础知识"></a>第一部分 基础知识</h2><h3 id="第一章-为什么要关心Java-8"><a href="#第一章-为什么要关心Java-8" class="headerlink" title="第一章 为什么要关心Java 8"></a>第一章 为什么要关心Java 8</h3><p>2014年3月更新Java 8，加入了很多新特性。</p>
 <p>函数式编程、并行新思路、Stream API …</p>
 <blockquote>
 <p>书中第一章节举例：</p>
@@ -1662,8 +964,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> BiConsumer&lt;List&lt;T&gt;, T&gt; accumulator() &#123;</span><br><span class="line">    <span class="keyword">return</span> (list, item) -&gt; list.add(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 另一种版本</span></span><br><span class="line"><span class="keyword">public</span> BiConsumer&lt;List&lt;T&gt;, T&gt; accumulator() &#123;</span><br><span class="line">    <span class="keyword">return</span> List::add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-          
-        
       
     </div>
     
@@ -1680,136 +980,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/19/Vim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LocalMountain">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/19/Vim/" itemprop="url">Vim</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-19T17:34:23+08:00">
-                2019-09-19
-              </time>
+              <a href="/2019/09/19/Vim/" rel="next" title="Vim">
+                <i class="fa fa-chevron-left"></i> Vim
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2020/07/16/Maven/" rel="prev" title="Maven">
+                Maven <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>vim分为command和edit模式<br>在command模式下无法输入，切换到edit用<code>i</code><br>edit只限于文本编辑，保存文本需要进入到command模式，从edit退出到command用<code>Esc</code></p>
-<p>在command模式下<br><code>:wq</code>w表示保存，q表示退出<br><code>:syntax on</code> 语法高亮<br><code>:set number</code> 显示行号<br><code>:q!</code>在不保存的情况下退出<br><code>ZZ</code>保存并退出</p>
-<p>可在<code>.vimrc</code>文件中配置上述命令，可以下载别人配置好的.vimrc文件</p>
-<p>H←J↓K↑L→     同时按住W以词跳动光标   B往回跳<br><code>PageUp</code> <code>ctrl+b</code>上页 <code>PageDown</code> <code>ctrl+f</code>下页<br><code>数字+gg</code> 快速跳到指定的一行<br><code>数字+j</code> 往下跳指定的行数<br><code>数字+k</code> 往上跳指定的行数<br><code>/+指定的单词</code> 查找指定的单词 <code>n</code>下一个词 <code>shift+n</code>上一个词<br><code>cc</code>快速剪切一行，按下<code>u</code>撤回，<code>c+n+c</code>连续剪切n行，<code>p</code>进行粘贴</p>
-<p><code>yy</code>复制一行，<code>p</code>进行粘贴</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1819,10 +1015,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1830,6 +1027,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1850,8 +1051,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1897,6 +1107,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">第一部分 基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E5%BF%83Java-8"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 为什么要关心Java 8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E8%BF%87%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96%E4%BC%A0%E9%80%92%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 通过行为参数化传递代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">第三章 Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">方法引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88Lambda"><span class="nav-number">1.3.2.</span> <span class="nav-text">复合Lambda</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">第二部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%B5%81"><span class="nav-number">2.1.</span> <span class="nav-text">第四章 流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BD%BF%E7%94%A8%E6%B5%81"><span class="nav-number">2.2.</span> <span class="nav-text">第五章 使用流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BA%A6"><span class="nav-number">2.2.1.</span> <span class="nav-text">归约</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E6%B5%81%E7%89%B9%E5%8C%96"><span class="nav-number">2.2.2.</span> <span class="nav-text">原始类型流特化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%94%A8%E6%B5%81%E6%94%B6%E9%9B%86%E6%95%B0%E6%8D%AE-collect"><span class="nav-number">2.3.</span> <span class="nav-text">第六章 用流收集数据 collect</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BA%A6%E5%92%8C%E6%B1%87%E6%80%BB"><span class="nav-number">2.3.1.</span> <span class="nav-text">归约和汇总</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%88%86%E7%BB%84"><span class="nav-number">2.3.2.</span> <span class="nav-text">元素分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%88%86%E5%8C%BA"><span class="nav-number">2.3.3.</span> <span class="nav-text">元素分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-Collectors%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.4.</span> <span class="nav-text">总结 Collectors类的静态工厂方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.3.5.</span> <span class="nav-text">收集器接口</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2030,6 +1256,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
